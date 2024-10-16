@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: cursive;
+        text-align: center ;
+        padding: 20px;
+        background-color: lightblue;
+    }
+    .box{
+        width: 80px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: azure;
+        border: 2px solid black;
+        transition: background-color 0.3s;
+    }
+    @media only screen and (max-width:600px){
+        body{
+        background-color: lightcoral;
+        }
+    .box{
+        background-color: rgb(9, 70, 90);
+        border: 2px dashed black;
+    
+    }
+}
+    @media screen and (min-width:601px) and ( max-width:901px){
+        body{
+        background-color: rgb(236, 14, 14);
+        }
+    .box{
+        background-color: rgb(11, 230, 59);
+        border: 2px dashed black;
+    
+    }
+}
+</style>
+<body>
+    <h1>Media Query Example</h1>
+    <div classes="box">
+        <p>Resize the window to see Your one-stop destination for
+             unparalleled anime artwork. Immerse yourself in a vast 
+             collection exceeding 1 million high-quality wallpapers.</p>
+    </div>
+</body>
+</html>
