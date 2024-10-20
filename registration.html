@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form with Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .reg{
+            width: 35%;
+            height: 65%;
+            background-color: rgb(255, 255, 255);
+            border-style:none;
+            box-shadow: 2cap;
+            font-family: "Poppins",sans-serif;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
+            padding-top: 20px;
+            
+        }
+        h1{
+            background:linear-gradient(-135deg, #afaeae, #000000);
+            letter-spacing: 0.2rem;
+            font-size: 30px;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        body{
+  background-color: #d2d2d2;
+  padding-top: 100px;
+  font-style:"Poppins",sans-serif ;
+}
+button{
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+    border-color: white;
+    background: linear-gradient(-135deg, #afaeae, #000000);
+    font-family:"Poppins",sans-serif ;
+    font-size: 20px;
+    color: white;
+}
+#valid{
+    font-family: "Poppins",sans-serif;
+}
+    </style>
+</head>
+<body><center><div class="reg">
+    
+    <h1 cellspacing="10px">Signin Form</h1>
+    
+    <form id="basicForm">
+        <div id="valid">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <span id="nameError" class="error"></span><br>
+        </div>
+
+        <div id="valid">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <span id="emailError" class="error"></span><br>
+        </div>
+        <div id="valid">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br><br>
+        <span id="ageError" class="error"></span><br>
+        </div>
+        <div id="valid">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <span id="passwordError" class="error"></span><br>
+            </div>
+
+        <button type="submit" id="submit">Submit</button>
+    </form></center></div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const password = document.getElementById('password').value;
+
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const ageError = document.getElementById('ageError');
+            const passwordError = document.getElementById('passwordError');
+
+
+            nameError.textContent = '';
+            emailError.textContent = '';
+            ageError.textContent = '';
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const agePattern = /^[1-9][0-9]?$/;
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+            if (!name) {
+                nameError.textContent = 'Name is required.';
+                isValid = false;
+            }
+
+            if (!email || !emailPattern.test(email)) {
+                emailError.textContent = 'Please enter a valid email.';
+                isValid = false;
+            }
+
+            if (!age || !agePattern.test(age)) {
+                ageError.textContent = 'Please enter a valid age (1-99).';
+                isValid = false;
+            }
+            if (!password || !passwordPattern.test(password)) {
+                ageError.textContent = 'Please enter valid password.';
+                isValid = false;
+            }
+
+
+            if (isValid) {
+            
+                window.location.href="form1.html";
+            }
+        }
+
+        document.getElementById('basicForm').addEventListener('submit', validateForm);
+    </script>
+</body>
+</html>

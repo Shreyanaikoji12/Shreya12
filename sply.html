@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sply 350</title>
+    <style>
+        img{
+            width: 550px;
+            height: 350px;
+        }
+        .sneaker__sale{
+            font-size: larger;
+            
+            letter-spacing: 0.5rem;
+            background-color: var(--dark-color);
+            font-weight: bold;
+            font-size: 50px;
+            font-family: "Poppins", sans-serif;
+  
+
+        }
+        .sneaker__name{
+            font-size: larger;
+            
+            letter-spacing: 0.1rem;
+            background-color: var(--dark-color);
+            
+            font-size: 30px; 
+            font-family: "Poppins", sans-serif;
+        }
+        .sneaker__preci{
+            font-size: larger;
+            
+            letter-spacing: 0.1rem;
+            background-color: var(--dark-color);
+            
+            font-size: 20px; 
+            font-family: "Poppins", sans-serif; 
+        }
+        .size{
+            font-size: larger;
+            
+            letter-spacing: 0.1rem;
+            background-color: var(--dark-color);
+            
+            font-size: 20px; 
+            font-family: "Poppins", sans-serif;    
+        }
+        .button {
+  display: inline-block;
+  background-color: var(--dark-color);
+  color: var(--white-color);
+  padding: 1.125rem 2rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+.button:hover {
+  transform: translateY(-0.25rem);
+}
+
+.button-light {
+  display: inline-flex;
+  color: var(--dark-color);
+  font-weight: var(--font-bold);
+  align-items: center;
+  
+}
+
+.button-icon {
+  font-size: 1.25rem;
+  margin-left: var(--mb-1);
+  transition: 0.3s;
+}
+
+.button-light:hover .button-icon {
+  transform: translateX(0.25rem);
+}
+.ovall{
+    font-family: "Poppins", sans-serif; 
+    width: 75%;
+}
+.back{
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 18px;
+}
+.backbtn{
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+    border-color: white;
+    background: linear-gradient(-135deg, #dadada, #a9a9a9);
+    font-family:"Poppins",sans-serif ;
+    font-size: 20px;
+    color:rgb(254, 255, 255);
+}
+#cart{
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+    border-color: white;
+    background: linear-gradient(-135deg, #dadada, #a9a9a9);
+    font-family:"Poppins",sans-serif ;
+    font-size: 20px;
+    color:rgb(0, 0, 0);
+} 
+
+        </style>
+</head>
+<body>
+    <button class="backbtn" onclick="window.location.href='a1.html'">Back <i class='bx bx-right-arrow-alt button-icon'></i></button>   
+    <center>
+    <article class="sneaker">
+        <div class="sneaker__sale">NIKE SPLY 350</div><br><br>
+        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/imghome.png?raw=true" alt="" class="sneaker__img"><br><br><br><br>
+        <span class="sneaker__name">Nike Sply 350</span><br></br>
+        <span class="sneaker__preci">Rs.8999</span><br>
+        <div class="ovall"><p class="req">
+            If it's freedom you crave, this road runner can help turn you loose. Feathery and flexible, its barefoot feel and Flyknit upper will have you freewheeling with joy, ready to go a few more strides.          <br><br><b>Overview</b><br> <br> 
+            Colour Shown: Black/Brown/Orange<br>
+Style: FB1276-001<br>
+Country/Region of Origin: Vietnam<br><br><br>
+        </p>
+
+        </div>
+        <div class="size">
+            <Label for="size-7">Size : </Label>
+            <Label for="size-7">7</Label>
+            <input type="radio" id="size-7" name="size" />
+            <Label for="size-8">8</Label>
+            <input type="radio" id="size-8" name="size" />
+            <Label for="size-9">9</Label>
+            <input type="radio" id="size-9" name="size" />
+            <Label for="size-10">10</Label>
+            <input type="radio" id="size-10" name="size" />
+        </div><br><br>
+            
+            <button id="cart">Add to cart</button>
+
+    </article>
+  
+    </center>
+</body>
+</html>

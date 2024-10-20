@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        /* Add any additional styles you want */
+        .cart-section {
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<section class="cart-section">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: Rs.<span id="cart-total">0</span></p>
+</section>
+
+<script>
+    let cart = [];
+
+    // Function to update the cart HTML
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        
+        // Clear the cart display
+        cartItems.innerHTML = '';
+        
+        // Initialize total price
+        let total = 0;
+        
+        // Loop through the cart and display each item
+        cart.forEach(item => {
+            let li = document.createElement('li');
+            li.textContent = `${item.name} - Rs.${item.price}`;
+            cartItems.appendChild(li);
+            
+            // Update total price
+            total += item.price;
+        });
+        
+        // Update total in the cart display
+        cartTotal.textContent = total;
+    }
+
+    // Add click event listener to all "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            // Get sneaker details from data attributes
+            const name = button.getAttribute('data-name');
+            const price = parseInt(button.getAttribute('data-price'));
+            
+            // Add the item to the cart array
+            cart.push({ name, price });
+            
+            // Update the cart display
+            updateCart();
+        });
+    });
+</script>
+
+</body>
+</html>

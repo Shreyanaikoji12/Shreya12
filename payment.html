@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Payment</title>
+
+        <style>
+        .pay-form{
+            width: 35%;
+            height: 65%;
+            background-color: rgb(255, 255, 255);
+            border-style:none;
+            box-shadow: 2cap;
+            font-family: "Poppins",sans-serif;
+            letter-spacing: 0.1rem;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
+            padding-top: 20px;
+            }
+            .pay-cart{
+                width: 35%;
+            height: 65%;
+            background-color: rgb(255, 255, 255);
+            border-style:none;
+            box-shadow: 2cap;
+            font-family: "Poppins",sans-serif ;
+            letter-spacing: 0.1rem;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
+            padding-top: 20px;
+            }
+            h2{
+                font-family: "Poppins",sans-serif;
+                letter-spacing: 0.2rem;
+            }
+            body{
+                background-color: rgb(229, 230, 231);
+            }
+            button{
+                width: 130px;
+                height: 40px;
+                 border-radius: 15px;
+                border-color: white;
+                background: linear-gradient(-135deg, #dadada, #a9a9a9);
+                font-family:"Poppins",sans-serif ;
+                font-size: 20px;
+                color:rgb(1, 1, 1);
+            }
+            ul{
+                list-style-type: none;
+            }
+            </style>
+        </head>
+
+        
+
+        <body>
+    <center>
+      <section class="payment-section">
+        <h2>Cart Items</h2>
+  
+        <div class="pay-cart">
+        <h3>Selected Items</h3>
+        <ul id="selected-cart-items"></ul>
+        <p>Total Amount: Rs.<span id="payment-total">0</span></p>
+            </div>
+        
+        <form id="buyer-info-form">
+          <h2>Billing Information</h2>
+        <div class="pay-form">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required><br><br>
+  
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required><br><br>
+  
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required><br><br>
+  
+          <label for="payment-method">Payment Method:</label>
+          <select id="payment-method" name="payment-method" required><br><br>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+            <option value="upi">UPI</option>
+            <option value="net-banking">Net Banking</option>
+          </select><br><br><br><br>
+  
+          <button type="submit" id="buy-now-btn">Buy Now</button>
+          </div>
+        </form>
+      </section>
+    </center>
+  
+    <script>
+      // Assume cart is passed to the payment page from localStorage
+      const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || [];
+      const selectedCartItems = document.getElementById('selected-cart-items');
+      const paymentTotal = document.getElementById('payment-total');
+  
+      // Function to display selected cart items on the payment page
+      function displaySelectedCartItems() {
+        selectedCartItems.innerHTML = '';
+        let total = 0;
+        
+        // Loop through the cart items and display them
+        cartFromLocalStorage.forEach(item => {
+          let li = document.createElement('li');
+          li.textContent = `${item.name} - Rs.${item.price}`;
+          selectedCartItems.appendChild(li);
+          total += item.price;
+        });
+        
+        // Update the total amount to pay
+        paymentTotal.textContent = total;
+      }
+  
+      // Call the function to display cart items
+      displaySelectedCartItems();
+  
+      // "Buy Now" button submission event
+      document.getElementById('buyer-info-form').addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent form submission
+  
+        // Collect buyer's information
+        const buyerName = document.getElementById('name').value;
+        const buyerAddress = document.getElementById('address').value;
+        const buyerPhone = document.getElementById('phone').value;
+        const paymentMethod = document.getElementById('payment-method').value;
+  
+        // Validate form data (already validated by the required attributes and pattern)
+        if (cartFromLocalStorage.length > 0) {
+          alert(`Thank you, ${buyerName}, for your purchase! \nDelivery will be sent to ${buyerAddress}. \nPayment method: ${paymentMethod}.`);
+          
+          // Clear the cart after successful payment
+          localStorage.removeItem('cart');
+          
+          // Optionally, redirect to a thank-you page
+          window.location.href = 'thank-you.html';
+        } else {
+          alert('Your cart is empty.');
+        }
+      });
+    </script>
+    </body>
+</html>
+  

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoesy | Login page</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .reg{
+            width: 35%;
+            height: 65%;
+            background-color: rgb(255, 255, 255);
+            border-style:none;
+            box-shadow: 2cap;
+            font-family: "Poppins",sans-serif;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 15px 20px rgba(0,0,0,0.5);
+            padding-top: 20px;
+            
+        }
+        h1{
+            background:linear-gradient(-135deg, #afaeae, #000000);
+            letter-spacing: 0.2rem;
+            font-size: 30px;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        body{
+  background-color: #d2d2d2;
+  padding-top: 100px;
+  font-style:"Poppins",sans-serif ;
+}
+button{
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+    border-color: white;
+    background: linear-gradient(-135deg, #afaeae, #000000);
+    font-family:"Poppins",sans-serif ;
+    font-size: 20px;
+    color: white;
+}
+#valid{
+    font-family: "Poppins",sans-serif;
+}
+    </style>
+</head>
+<body><center><div class="reg">
+    
+    <h1 cellspacing="10px">LOGIN</h1>
+    
+    <form id="basicForm">
+       
+
+        <div id="valid">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <span id="emailError" class="error"></span><br>
+        </div>
+        
+        <div id="valid">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <span id="passwordError" class="error"></span><br>
+            </div>
+
+        <button type="submit" id="submit">Submit</button>
+    </form></center></div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+
+
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+            
+
+            if (!email || !emailPattern.test(email)) {
+                emailError.textContent = 'Please enter a valid email.';
+                isValid = false;
+            }
+
+           
+            if (!password || !passwordPattern.test(password)) {
+                ageError.textContent = 'Please enter valid password.';
+                isValid = false;
+            }
+
+
+            if (isValid) {
+                alert("Successfully LogedIn..");
+                window.location.href="a1.html";
+            }
+        }
+
+        document.getElementById('basicForm').addEventListener('submit', validateForm);
+    </script>
+</body>
+</html>
