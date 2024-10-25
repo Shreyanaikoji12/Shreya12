@@ -17,7 +17,9 @@ JavaScript: Adding interactivity and functionality, such as cart management.
 INSTALLATION : 
 To get started with Shoesy, follow these steps:
  
- Clone the repository: git clone https://github.com/Shreyanaikoji12/Shreya12.git
+ Clone the repository:
+ 
+ git clone https://github.com/Shreyanaikoji12/Shreya12.git
 
 Open the a1.html file in your web browser to view the project. 
 
